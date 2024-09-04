@@ -27,6 +27,10 @@ export const POST = checkAuth(async (req: Request, { params, jwtPayload, createR
 
     const data = (await req.json()) as ChatStreamPayload;
 
+    if (data.messages.length > 10) {
+      data.messages = [...data.messages.slice(0, 5), ...data.messages.slice(-5)]
+    }
+
     const tracePayload = getTracePayload(req);
 
     let traceOptions = {};
