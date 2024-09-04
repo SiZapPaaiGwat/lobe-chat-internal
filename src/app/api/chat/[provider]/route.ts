@@ -9,6 +9,8 @@ import { createTraceOptions, initAgentRuntimeWithUserPayload } from '../agentRun
 
 export const runtime = 'edge';
 
+export const regions = ['sin1']
+
 export const POST = checkAuth(async (req: Request, { params, jwtPayload, createRuntime }) => {
   const { provider } = params;
 
